@@ -1,0 +1,339 @@
+
+Map of Debug\progettononvedentinuovo.sm8 from link file Debug\progettononvedentinuovo.lkf - Wed Nov 24 19:37:06 2021
+
+
+                               --------
+                               Segments
+                               --------
+
+start 00008080 end 00008088 length     8 segment .const
+start 0000809f end 000086a5 length  1542 segment .text
+start 00004000 end 00004000 length     0 segment .eeprom
+start 00000000 end 0000000f length    15 segment .bsct, initialized
+start 00008090 end 0000809f length    15 segment .bsct, from
+start 0000000f end 00000049 length    58 segment .ubsct
+start 00000049 end 00000049 length     0 segment .bit
+start 00000049 end 00000049 length     0 segment .share
+start 00000100 end 00000100 length     0 segment .data
+start 00000100 end 00000100 length     0 segment .bss
+start 00000000 end 00000559 length  1369 segment .info.
+start 00000000 end 000010f4 length  4340 segment .debug
+start 00008000 end 00008080 length   128 segment .const
+start 00008088 end 00008090 length     8 segment .init
+
+
+                               -------
+                               Modules
+                               -------
+
+C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8:
+start 0000809f end 000080ef length    80 section .text
+start 00000100 end 00000100 length     0 section .bss
+start 0000000f end 0000000f length     0 section .ubsct
+start 00000000 end 00000034 length    52 section .info.
+
+Debug\analog.o:
+start 000080ef end 00008178 length   137 section .text
+start 00000000 end 00000168 length   360 section .debug
+start 00000034 end 000000a0 length   108 section .info.
+
+Debug\buzzer.o:
+start 00008178 end 00008223 length   171 section .text
+start 00000168 end 0000037b length   531 section .debug
+start 000000a0 end 0000010c length   108 section .info.
+
+Debug\clock.o:
+start 00008223 end 00008234 length    17 section .text
+start 0000037b end 0000042f length   180 section .debug
+start 0000010c end 00000177 length   107 section .info.
+
+Debug\common.o:
+start ******** end ******** length     0 section .text *** removed ***
+start 0000042f end 000004ff length   208 section .debug
+start 00000177 end 000001e3 length   108 section .info.
+
+Debug\gpio.o:
+start 00008234 end 000083ef length   443 section .text
+start 000004ff end 00000789 length   650 section .debug
+start 000001e3 end 0000024d length   106 section .info.
+start 00008080 end 00008084 length     4 section .const
+
+Debug\main.o:
+start 000083ef end 000084dc length   237 section .text
+start 00000000 end 0000000b length    11 section .bsct
+start 0000000f end 0000003c length    45 section .ubsct
+start 00000789 end 00000d64 length  1499 section .debug
+start 0000024d end 000002b7 length   106 section .info.
+
+Debug\tim.o:
+start 000084dc end 000085b3 length   215 section .text
+start 0000000b end 0000000f length     4 section .bsct
+start 0000003c end 0000003f length     3 section .ubsct
+start 00000d64 end 00000f89 length   549 section .debug
+start 000002b7 end 00000320 length   105 section .info.
+start 00008084 end 00008088 length     4 section .const
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o:
+start 000085b3 end 000085d7 length    36 section .text
+start 00000320 end 0000034f length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o:
+start 000085d7 end 000085f7 length    32 section .text
+start 0000034f end 0000037e length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lgadc.o:
+start 000085f7 end 00008607 length    16 section .text
+start 0000037e end 000003ae length    48 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lmul.o:
+start 00008607 end 00008692 length   139 section .text
+start 000003ae end 000003dd length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lreg.o:
+start 0000003f end 00000043 length     4 section .ubsct
+start 000003dd end 0000040c length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o:
+start 00008692 end 000086a4 length    18 section .text
+start 0000040c end 0000043b length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)xreg.o:
+start 00000043 end 00000046 length     3 section .ubsct
+start 0000043b end 0000046a length    47 section .info.
+
+(C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)yreg.o:
+start 00000046 end 00000049 length     3 section .ubsct
+start 0000046a end 00000499 length    47 section .info.
+
+Debug\stm8_interrupt_vector.o:
+start 000086a4 end 000086a5 length     1 section .text
+start 00000f89 end 000010f4 length   363 section .debug
+start 00000499 end 00000514 length   123 section .info.
+start 00008000 end 00008080 length   128 section .const
+
+
+                             -----------
+                             Stack usage
+                             -----------
+
+Debug\analog.o:
+_analogInit                      2   (2)
+_analogRead                 >    4   (4)
+_checkSetPoint              >    2   (2)
+
+Debug\buzzer.o:
+_Buzzer_Calibration         >   10   (8)
+_Buzzer_Init                >    3   (3)
+_buzzerInit                      2   (2)
+_driveBuzzer                >    2   (2)
+
+Debug\clock.o:
+_clockInit                       2   (2)
+
+Debug\gpio.o:
+_checkDecharge              >    2   (2)
+_gestionePulsante           >    2   (2)
+_gpioInit                        2   (2)
+_segnalazioneAccensione          4   (2)
+_segnalazioneSpegnimento         8   (6)
+f_startStopTriggersPORTA    >   18   (12)
+f_startStopTriggersPORTB    >   18   (12)
+
+Debug\main.o:
+_main                       >   10   (2)
+
+Debug\stm8_interrupt_vector.o:
+f_NonHandledInterrupt       >    6   (6)
+
+Debug\tim.o:
+_aspetta                         2   (2)
+_gestisciBuzzerEVibrazione  >    2   (2)
+_timInit                         2   (2)
+f_tim1Elapsed               >   12   (10)
+
+Stack size: 28
+
+
+                              ---------
+                              Call tree
+                              ---------
+   1 > _Buzzer_Calibration: (8)
+
+   2 > _Buzzer_Init: (3)
+
+   3 > __stext: (0)
+
+   4 > _analogRead: (4)
+
+   5 > _checkDecharge: (2)
+
+   6 > _checkSetPoint: (2)
+
+   7 > _driveBuzzer: (2)
+
+   8 > _gestionePulsante: (2)
+
+   9 > _gestisciBuzzerEVibrazione: (2)
+
+  10 > _main: (2)
+  11      + _analogInit: (2)
+  12      + _aspetta: (2)
+  13      + _buzzerInit: (2)
+  14      + _clockInit: (2)
+  15      + _gpioInit: (2)
+  16      + _segnalazioneAccensione: (2)
+  17      |    + _aspetta --> 12
+          | 
+  18      + _segnalazioneSpegnimento: (6)
+  19      |    + _aspetta --> 12
+          | 
+  20      + _timInit: (2)
+       
+  21 > f_NonHandledInterrupt: (6)
+
+  22 > f_startStopTriggersPORTA: (12)
+
+  23 > f_startStopTriggersPORTB: (12)
+
+  24 > f_tim1Elapsed: (10)
+
+  25   _analogInit --> 11
+
+  26   _aspetta --> 12
+
+  27   _buzzerInit --> 13
+
+  28   _clockInit --> 14
+
+  29   _gpioInit --> 15
+
+  30   _segnalazioneAccensione --> 16
+
+  31   _segnalazioneSpegnimento --> 18
+
+  32   _timInit --> 20
+
+
+
+                               -------
+                               Symbols
+                               -------
+
+_Buzzer_Calibration            000081a3   defined in Debug\buzzer.o section .text
+_Buzzer_Init                   000081f7   defined in Debug\buzzer.o section .text
+___flaggami                    0000000f   defined in Debug\main.o section .ubsct
+__endmem                       000001fe   defined in command file
+                                          *** not used ***
+__endzp                        00000049   defined in command file section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+__idesc__                      00008088   defined in linker section .init
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+__memory                       00000100   defined in command file section .bss
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+__stack                        000003ff   defined in command file
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+__startmem                     00000100   defined in command file section .bss
+                                          *** not used ***
+__stext                        0000809f   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
+                                          used in Debug\stm8_interrupt_vector.o
+__vectab                       00008000   defined in Debug\stm8_interrupt_vector.o section .const
+_adcValues                     00000038   defined in Debug\main.o section .ubsct
+                                          used in Debug\analog.o
+_analogInit                    000080ef   defined in Debug\analog.o section .text
+                                          used in Debug\main.o
+_analogRead                    00008100   defined in Debug\analog.o section .text
+_aspetta                       000085a8   defined in Debug\tim.o section .text
+                                          used in Debug\gpio.o Debug\main.o
+_buzzer                        0000001a   defined in Debug\main.o section .ubsct
+                                          used in Debug\tim.o
+_buzzerInit                    00008178   defined in Debug\buzzer.o section .text
+                                          used in Debug\main.o
+_checkDecharge                 0000838a   defined in Debug\gpio.o section .text
+_checkSetPoint                 00008137   defined in Debug\analog.o section .text
+_clockInit                     00008223   defined in Debug\clock.o section .text
+                                          used in Debug\main.o
+_contatoreAttesa               0000000d   defined in Debug\tim.o section .bsct, initialized
+_contatoreLunghezzaPressione   00000010   defined in Debug\main.o section .ubsct
+                                          used in Debug\tim.o
+_countDebug                    0000000b   defined in Debug\tim.o section .bsct, initialized
+_countInput                    00000008   defined in Debug\main.o section .bsct, initialized
+_countPulsante                 00000001   defined in Debug\main.o section .bsct, initialized
+                                          used in Debug\gpio.o
+_delay                         ********   *** removed from Debug\common.o ***
+_deviAspettare                 0000003e   defined in Debug\tim.o section .ubsct
+_distanze                      00000025   defined in Debug\main.o section .ubsct
+                                          used in Debug\gpio.o
+_driveBuzzer                   00008195   defined in Debug\buzzer.o section .text
+_exit                          000080ed   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
+_fineCarica                    00000018   defined in Debug\main.o section .ubsct
+_fineCaricaSignalled           00000016   defined in Debug\main.o section .ubsct
+_flagBatteriaScarica           00000004   defined in Debug\main.o section .bsct, initialized
+_flagElapsed                   00000037   defined in Debug\main.o section .ubsct
+                                          used in Debug\tim.o
+_gestionePulsante              00008269   defined in Debug\gpio.o section .text
+_gestisciBuzzerEVibrazione     0000855b   defined in Debug\tim.o section .text
+_gpioInit                      00008234   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_inizioCarica                  00000019   defined in Debug\main.o section .ubsct
+_inizioCaricaSignalled         00000017   defined in Debug\main.o section .ubsct
+_main                          000083ef   defined in Debug\main.o section .text
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+_oneShotDrive                  00000007   defined in Debug\main.o section .bsct, initialized
+_oneShotPulsante               0000000a   defined in Debug\main.o section .bsct, initialized
+_priorita                      00000024   defined in Debug\main.o section .ubsct
+_pulsante                      00000000   defined in Debug\main.o section .bsct, initialized
+                                          used in Debug\gpio.o
+_pulses                        00000031   defined in Debug\main.o section .ubsct
+                                          used in Debug\gpio.o Debug\tim.o
+_quantoDeviAspettare           0000003c   defined in Debug\tim.o section .ubsct
+_segnalazioneAccensione        000083d2   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_segnalazioneSpegnimento       00008396   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_setPoint                      00000036   defined in Debug\main.o section .ubsct
+_startCountPulses              00000035   defined in Debug\main.o section .ubsct
+                                          used in Debug\gpio.o Debug\tim.o
+_stateMachineSensor            00000003   defined in Debug\main.o section .bsct, initialized
+                                          used in Debug\gpio.o
+_statoDispositivo              00000009   defined in Debug\main.o section .bsct, initialized
+_statoPulsante                 00000005   defined in Debug\main.o section .bsct, initialized
+_statoPulsante_prec            00000006   defined in Debug\main.o section .bsct, initialized
+_supportoDelayBloccante        00000012   defined in Debug\main.o section .ubsct
+                                          used in Debug\tim.o
+_timInit                       000084dc   defined in Debug\tim.o section .text
+                                          used in Debug\main.o
+_tmp                           0000002f   defined in Debug\main.o section .ubsct
+_totalTicks                    0000002b   defined in Debug\main.o section .ubsct
+                                          used in Debug\tim.o
+c_imul                         000085b3   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o section .text
+                                          used in Debug\buzzer.o
+c_lcmp                         000085d7   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o section .text
+                                          used in Debug\tim.o
+c_lgadc                        000085f7   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lgadc.o section .text
+                                          used in Debug\tim.o
+c_lmul                         00008607   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lmul.o section .text
+                                          used in Debug\gpio.o
+c_lmulc                        0000860f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lmul.o section .text
+                                          *** not used ***
+c_lreg                         0000003f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lreg.o section .ubsct
+                                          used in Debug\analog.o Debug\gpio.o
+                                                  Debug\tim.o
+                                                  (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o
+                                                  (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lmul.o
+                                                  (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o
+c_ltor                         00008692   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o section .text
+                                          used in Debug\gpio.o Debug\tim.o
+c_x                            00000043   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)xreg.o section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+                                                  Debug\buzzer.o Debug\gpio.o
+                                                  (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o
+                                                  (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lmul.o
+c_y                            00000046   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)yreg.o section .ubsct
+                                          used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
+f_NonHandledInterrupt          000086a4   defined in Debug\stm8_interrupt_vector.o section .text
+f_startStopTriggersPORTA       00008338   defined in Debug\gpio.o section .text
+                                          used in Debug\stm8_interrupt_vector.o
+f_startStopTriggersPORTB       000082a0   defined in Debug\gpio.o section .text
+                                          used in Debug\stm8_interrupt_vector.o
+f_tim1Elapsed                  000084f5   defined in Debug\tim.o section .text
+                                          used in Debug\stm8_interrupt_vector.o

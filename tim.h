@@ -15,22 +15,30 @@
 #define TIM1_CR1_CEN     ((uint8_t)0x01) /*!< Counter Enable mask. */
 #define TIM1_FLAG_CC1    ((uint16_t)0x0002)
 
-typedef struct {
-	unsigned char distanceMonitoring;
-	unsigned char batteryMonitoring;
+
+typedef struct
+{
+	unsigned char enabled;
 	unsigned short countHigh;
 	unsigned short countLow;
-	unsigned char soundStat;
 	unsigned short counter;
-	unsigned char drive; // mi aiuta a capire se sono nel
-	//tHigh(1) oppure tLow(0)
-} tFrequenza;
+	unsigned int counterDurata;
+	unsigned int durata;
+} tContatore;
 
+typedef struct {
+	tContatore batteriaScarica;
+	tContatore batteriaInizioCarica;
+	tContatore batteriaFineCarica;
+	tContatore distanceMonitoring;
+	unsigned char soundStat;
+	unsigned char drive; // mi aiuta a capire se sono nel //tHigh(1) oppure tLow(0)
+} tFrequenza;
 
 void timInit(void);
 @far @interrupt void tim1Elapsed (void);
 void resetCounterBuzzer(unsigned short counts);
-void gestisciBuzzerEVibrazione(void);
+
 void aspetta(unsigned int count);
 
 

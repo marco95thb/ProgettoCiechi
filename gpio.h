@@ -16,5 +16,12 @@ uint8_t gestionePulsante(void);
 uint8_t checkDecharge(void);
 void segnalazioneSpegnimento(void);
 void segnalazioneAccensione(void);
-
+void segnalazioneInizioCarica(void);
+void segnalazioneFineCarica(void);
+void segnalazioneBatteriaScarica(void);
+void debounceInizioCarica(void);
+void debounceFineCarica(void);
+void debounceBatteriaScarica(void);
+void debounceTasto(void);
+void gestisciBuzzerEVibrazione(void);
 #endif

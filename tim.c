@@ -5,11 +5,11 @@
 #include "tim.h"
 #include "buzzer.h"
 #include "common.h"
-
+#include "gpio.h"
 
 
 extern unsigned char startCountPulses;
-extern unsigned long pulses;
+extern unsigned int pulses;
 extern unsigned long totalTicks;
 extern unsigned char flagElapsed;
 extern unsigned char tipoPeriodicita;
@@ -25,17 +25,20 @@ unsigned char deviAspettare;
 unsigned int quantoDeviAspettare;
 unsigned int contatoreAttesa = 0;
 
+extern unsigned char debugToggle;
+
 void timInit(void)
 {
 	TIM1->CR1 = 0b00000100; // interrupt only on overflow
 	TIM1->IER = 0x01; // update interrupt enable
 	
-	TIM1->PSCRL = 15; // timer @1Mhz (da 16 di cpu clock a 1)
+	TIM1->PSCRH = 0;
+	TIM1->PSCRL = 15; // timer @1Mhz 
 	
 	// scrivere prima High poi Low (da datashhet)
-	TIM1->ARRH = 0x00;
-	TIM1->ARRL = 0x64; // sarebbero 100 micro
-	// -->  interrupt ogni 100microsecondi
+	TIM1->ARRH = 0x01;
+	TIM1->ARRL = 0xF4; // sarebbero 500 tick a 1Mhz
+	// -->  interrupt ogni mezzo ms --> tempo verificato
 	
 	
 	
@@ -49,20 +52,32 @@ void timInit(void)
 @far @interrupt void tim1Elapsed (void)
 {
 	TIM1->SR1 &= ~(0x01); // clear the flag
-	totalTicks++; // @ 100 microsecond
+	totalTicks++; // @ 500 microsecond
 	
 	supportoDelayBloccante++;
 	
-	if(totalTicks >= 1000) // 100ms
+	
+	
+	if(totalTicks >= 200) // 1 secondo
 	{
 		totalTicks = 0;
 		flagElapsed = 1;
+		
 	}
 
-	
+	if(!debugToggle)
+	{
+		debugToggle = 1;
+		GPIOC->ODR |= SENSOR1_TRIGGER_ON;
+	}
+	else
+	{
+		debugToggle = 0;
+		GPIOC->ODR &= ~SENSOR1_TRIGGER_ON;
+	}
 	if(startCountPulses)
 	{
-		pulses++; // pulses è in base 100 microS
+		pulses++; // pulses è in base 500 microS
 	}
 	
 		if(contatoreLunghezzaPressione < 0xFFFFFFFF) // evito overflow
@@ -78,7 +93,7 @@ void timInit(void)
 			
 		}
 	}
-	//gestisciBuzzerEVibrazione();
+	gestisciBuzzerEVibrazione();
 	
 	
 
@@ -87,38 +102,7 @@ void timInit(void)
 
 
 
-void gestisciBuzzerEVibrazione(void)
-{
-	if((buzzer.distanceMonitoring) || 
-		(buzzer.batteryMonitoring))
-	{		
-		buzzer.counter++;
-		if(buzzer.drive)
-		{
-			GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
-			if(buzzer.counter >= buzzer.countHigh)
-				{
-					buzzer.drive = 0; // toggle
-					buzzer.counter = 0; // reset the counter
-				}
-		}
-		else
-		{
-			GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
-			if(buzzer.counter >= buzzer.countLow)
-				{
-					buzzer.drive = 1; // toggle
-					buzzer.counter = 0; // reset the counter
-				}
-		}
-	}
-	else
-	{
-		buzzer.drive = 0; // toggle
-		buzzer.counter = 0; // reset the counter
-		GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
-	}
-}
+
 void aspetta(unsigned int count)
 {
 	deviAspettare = 1;

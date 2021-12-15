@@ -26,4 +26,4 @@ ExternDep= main.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\HSTM8\mod
 ExternDep= stm8_interrupt_vector.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\HSTM8\mods0.h"
 
 [Root.Source Files.tim.c.Config.0]
-ExternDep= tim.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\HSTM8\mods0.h" tim.h  common.h registers.h buzzer.h
+ExternDep= tim.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\HSTM8\mods0.h" tim.h  common.h registers.h buzzer.h gpio.h

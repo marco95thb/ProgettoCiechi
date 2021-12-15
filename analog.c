@@ -14,11 +14,12 @@ void analogInit(void)
 	
 	// SCAN = 1 + CONT = 0 --> 	single scan mode
 	ADC1->CSR = 0x02; // AIN2
-	
+	ADC1->CR2 |= (0x01 << 3);
 	
 	// ADC_CSR per selezionare i canali
 	// SPSEL DI CR1 PER CONTROLLARE IL CLOCK
 	ADC1->CR1 |= 0x01; // wake up
+	
 	
 	// per iniziare una conversione, scrivere un 1
 }
@@ -35,14 +36,23 @@ void analogRead(void)
 	}
 		
 	disableInterrupts(); // mi assicuro che nessuno disturbi la lettura
-	adcValues.distanceSetPoint = ((ADC1->DB2RH << 8) | 
-	ADC1->DB2RL);
-	enableInterrupts();
-	if((ADC1->CR3 & 0x40)==0x40)// CHECK OVR FLAG
+	if((ADC1->CR2 & ADC1_CR2_ALIGN) != 0)
 	{
-		ADC1->CR3 &= ~(0x40);
-		adcValues.distanceSetPoint = 0; // not valid
+		tmp1 = ADC1->DRL;
+		tmp =  ADC1->DRH;
+		adcValues.distanceSetPoint = (tmp1 | (tmp << 8));
 	}
+	else
+	{
+		tmp =  ADC1->DRH;
+		tmp1 = ADC1->DRL;
+		
+		adcValues.distanceSetPoint = ((tmp1 << 6) | (tmp << 8));
+	}
+	
+	
+	enableInterrupts();
+	
 	/* clear the bit */
 	ADC1->CSR &= 0x7F; // bit7 --> eoc
 	
@@ -56,16 +66,13 @@ unsigned long checkSetPoint(void)
 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
 			{
 				// SP_TH1_COUNT < X < SP_TH2_COUNT
-				return 2000000; // micrometri
+				return 3000000; // micrometri
 			
 			}
 			else if (adcValues.distanceSetPoint < SP_TH3_COUNT)
 			{
 				// SP_TH2_COUNT < X < SP_TH3_COUNT
-				return 3000000; // micrometri
-			}
-			else
-			{
 				return 4000000; // micrometri
 			}
+			
 }

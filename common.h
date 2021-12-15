@@ -16,20 +16,21 @@
 #define FREQ_ALLARME_HW     3000 // TBD
 
 #define BUZZER_E_VIBRATORE_ON (unsigned char)0x30
-
+#define BUZZER_ON 0x10
+#define VIBRATORE_ON 0x20
 /* Questi cunt sono espressi in 100micro alla volta */
 /* Sensore 1 */
-#define COUNT_HIGH_1_FREQ 10000 // sarebbero 1000ms
-#define COUNT_LOW_1_FREQ 10000 // sarebbero 1000ms
+#define COUNT_HIGH_1_FREQ 1000 // sarebbero 100ms
+#define COUNT_LOW_1_FREQ 1000 // sarebbero 100ms
 /* Sensore 2 */
-#define COUNT_HIGH_2_FREQ 7000 // sarebbero 700ms era 7000
-#define COUNT_LOW_2_FREQ 7000 // sarebbero 700ms era 7000
+#define COUNT_HIGH_2_FREQ 600 
+#define COUNT_LOW_2_FREQ 600
 /* Sensore 3 */
-#define COUNT_HIGH_3_FREQ 5000 // sarebbero 500ms
-#define COUNT_LOW_3_FREQ 5000 // sarebbero 500ms
+#define COUNT_HIGH_3_FREQ 50 // sarebbero 50ms
+#define COUNT_LOW_3_FREQ 50 // sarebbero 50ms
 /* Batteria scarica */
-#define COUNT_HIGH_4_FREQ 20000 // sarebbero 2000ms
-#define COUNT_LOW_4_FREQ 20000 // sarebbero 2000ms
+#define COUNT_HIGH_4_FREQ 200 // sarebbero 200ms
+#define COUNT_LOW_4_FREQ 200 // sarebbero 200ms
 
 
 
@@ -44,38 +45,34 @@
 #define START_MEASURE_3SENSOR 5
 #define END_MEASURE_3SENSOR		6
 
-#define MAX_DIST_SENS_ALTO 1400000 // 1.4m espresso in microM
-#define MIN_DIST_SENS_ALTO 300000 // 30cm
+#define MAX_DIST_SENS_ALTO 16 // 16 count corrisponde a 1.4m
+#define MIN_DIST_SENS_ALTO 7 // circa 30 cm
 
-#define MAX_DIST_SENS_BASSO 1400000 // 1.4m espresso in microM
-#define MIN_DIST_SENS_BASSO 300000 // 30cm
+#define MAX_DIST_SENS_BASSO 16 // 1.4m espresso in microM
+#define MIN_DIST_SENS_BASSO 7 // circa 30cm
 
-#define MIN_DIST_SENS_MEDIO 300000 // 30cm
+#define MIN_DIST_SENS_MEDIO 7 // circa 30 cm
 
 /* Al di sotto di un metro, la frequenza del suono e della
    vibrazione si fa piu insistente */
-#define SOGLIA_ALLARME_SENSORE_ALTO 1000000 // 1mt
-#define SOGLIA_ALLARME_SENSORE_BASSO 1000000 // 1mt
-#define SOGLIA_ALLARME_SENSORE_MEDIO 1000000 // 1mt
-
-
-#define MAX_DIST_SENS_BASSO 1400000 // 1.4m espresso in microM
-#define MIN_DIST_SENS_BASSO 300000 // 30cm
-
-#define SENSOR1_TRIGGER_ON (uint8_t) (0x10)
-#define SENSOR2_TRIGGER_ON (uint8_t) (0x20)
-#define SENSOR3_TRIGGER_ON (uint8_t) (0x40)
+#define SOGLIA_ALLARME_SENSORE_ALTO 23 // 1mt circa
+#define SOGLIA_ALLARME_SENSORE_BASSO 23 // 1mt circa
+#define SOGLIA_ALLARME_SENSORE_MEDIO 23 // 1mt circa
+#define SOGLIA_ALLARME_SENSORE_MEDIO_TH1 17
+#define SOGLIA_ALLARME_SENSORE_MEDIO_TH2 12
 
 
 
+#define SENSOR1_TRIGGER_ON (uint8_t) (0b00001000)  
+#define SENSOR2_TRIGGER_ON (uint8_t) (0b00100000)
+#define SENSOR3_TRIGGER_ON (uint8_t) (0b01000000)
 
-#define VEL_SUONO 34300 // micrometri ogni 100 micro
 
 
 typedef struct  {
-	unsigned short d1;
-	unsigned short d2;
-	unsigned short d3;
+	unsigned int d1;
+	unsigned int d2;
+	unsigned int d3;
 } tDistances;
 
 

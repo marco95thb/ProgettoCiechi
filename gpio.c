@@ -131,27 +131,11 @@ uint8_t gestionePulsante(void)
 		if((startCountPulses) && 
 			(stateMachineSensor == START_MEASURE_1SENSOR))
 		{
-			//if(pulses > 500)
-			//{
-			
-	//	if(debugToggle == 0)
-	//		{
-	//			debugToggle = 1;
-			//	GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
-			//}
-			//else
-			//{
-	//			debugToggle = 0;
-			//	GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
-			//}
-		//}
-		
-		
+
+		stateMachineSensor = END_MEASURE_1SENSOR;
 			distanze.d1 = pulses; 
-			
-			pulses = 0;
 			startCountPulses = 0;
-			stateMachineSensor = END_MEASURE_1SENSOR;
+			
 			
 			
 		}
@@ -169,44 +153,59 @@ void segnalazioneSpegnimento(void)
 	for(i=0;i<blink;i++)
 	{
 		GPIOD->ODR |= BUZZER_ON;
-		aspetta(10000);
+		aspetta(200);
 		GPIOD->ODR &= ~BUZZER_ON;
-		aspetta(10000);
+		aspetta(200);
 	}
 	
 }
 void segnalazioneAccensione(void)
 {
-		GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
+		GPIOD->ODR |= BUZZER_ON;
 		aspetta(800); 
-		GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
+		GPIOD->ODR &= ~BUZZER_ON;
 		aspetta(800); 
 	
 }
 void segnalazioneInizioCarica(void)
 {
-	buzzer.batteriaInizioCarica.countHigh = 10000;
-	buzzer.batteriaInizioCarica.countLow = 10000;
-	buzzer.batteriaInizioCarica.durata = 100000;
-	buzzer.batteriaInizioCarica.enabled = 1;
+	volatile int blink = 3;
+	volatile int i = 0;
+	for(i=0;i<blink;i++)
+	{
+		GPIOD->ODR |= BUZZER_ON;
+		aspetta(300);
+		GPIOD->ODR &= ~BUZZER_ON;
+		aspetta(300);
+	}
 	
 	
 }
 
 void segnalazioneFineCarica(void)
 {
-	buzzer.batteriaFineCarica.countHigh = 50000;
-	buzzer.batteriaFineCarica.countLow = 50000;
-	buzzer.batteriaFineCarica.durata = 400000;
-	buzzer.batteriaFineCarica.enabled = 1;
-	
+	volatile int blink = 3;
+	volatile int i = 0;
+	for(i=0;i<blink;i++)
+	{
+		GPIOD->ODR |= BUZZER_ON;
+		aspetta(400);
+		GPIOD->ODR &= ~BUZZER_ON;
+		aspetta(400);
+	}
 	
 }
 void segnalazioneBatteriaScarica(void)
 {
-	buzzer.batteriaScarica.countHigh = 50000;
-	buzzer.batteriaScarica.countLow = 100;
-	buzzer.batteriaScarica.durata = 500000;
+	volatile int blink = 3;
+	volatile int i = 0;
+	for(i=0;i<blink;i++)
+	{
+		GPIOD->ODR |= BUZZER_ON;
+		aspetta(500);
+		GPIOD->ODR &= ~BUZZER_ON;
+		aspetta(500);
+	}
 }
 void debounceInizioCarica(void)
 {
@@ -269,19 +268,26 @@ void debounceTasto(void)
 {
 	if((GPIOD->IDR >> 2) & 0x01)
 			{
+				
+					
 				if(countInputB < 3)
 					countInputB++;
 				else{
 					statoPulsante = 1;
+					
 
 				}
 			}
 			else
 			{
+				
 				if(countInputB > 0)
 					countInputB--;
 				else
+				{
 					statoPulsante = 0;
+					
+				}
 			}
 }
 void gestisciBuzzerEVibrazione(void)
@@ -322,6 +328,28 @@ void gestisciBuzzerEVibrazione(void)
 	else
 	{
 		GPIOD->ODR &= ~BUZZER_ON;
+	}
+	
+}
+void segnalazioneOstacolo(int counter,int type,int blink)
+{
+	volatile int i = 0;
+	if(type)
+	{
+		for(i=0;i<blink;i++)
+	{
+		GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
+		aspetta(counter);
+		GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
+		aspetta(counter);
+	}
+	}
+	else
+	{
+		GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
+		aspetta(counter);
+		GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
+		
 	}
 	
 }

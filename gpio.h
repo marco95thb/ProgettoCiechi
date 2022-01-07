@@ -24,4 +24,5 @@ void debounceFineCarica(void);
 void debounceBatteriaScarica(void);
 void debounceTasto(void);
 void gestisciBuzzerEVibrazione(void);
+void segnalazioneOstacolo(int counter,int type,int blink);
 #endif

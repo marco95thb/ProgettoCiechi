@@ -57,22 +57,25 @@ void analogRead(void)
 	ADC1->CSR &= 0x7F; // bit7 --> eoc
 	
 }
-unsigned long checkSetPoint(void)
+unsigned int checkSetPoint(void)
 {
-	if(adcValues.distanceSetPoint < SP_TH1_COUNT)
+	if(adcValues.distanceSetPoint < SP_TH1_COUNT) // 1.4m
 			{
-				return 1400000; // micrometri
+				// il codice funziona
+				return 51;
 			}
 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
 			{
+				// il codice funziona
 				// SP_TH1_COUNT < X < SP_TH2_COUNT
-				return 3000000; // micrometri
+				return 42;
 			
 			}
-			else if (adcValues.distanceSetPoint < SP_TH3_COUNT)
+			else// if (adcValues.distanceSetPoint < SP_TH3_COUNT)
 			{
+				// il codice funziona
 				// SP_TH2_COUNT < X < SP_TH3_COUNT
-				return 4000000; // micrometri
+				return 20;
 			}
 			
 }

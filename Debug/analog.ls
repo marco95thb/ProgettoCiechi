@@ -90,48 +90,31 @@
  215                     ; 59 }
  218  006d 5b04          	addw	sp,#4
  219  006f 81            	ret
- 243                     ; 60 unsigned long checkSetPoint(void)
+ 243                     ; 60 unsigned int checkSetPoint(void)
  243                     ; 61 {
  244                     	switch	.text
  245  0070               _checkSetPoint:
- 249                     ; 62 	if(adcValues.distanceSetPoint < SP_TH1_COUNT)
+ 249                     ; 62 	if(adcValues.distanceSetPoint < SP_TH1_COUNT) // 1.4m
  251  0070 be02          	ldw	x,_adcValues+2
  252  0072 a30100        	cpw	x,#256
- 253  0075 240b          	jruge	L56
- 254                     ; 64 				return 1400000; // micrometri
- 256  0077 ae5cc0        	ldw	x,#23744
- 257  007a bf02          	ldw	c_lreg+2,x
- 258  007c ae0015        	ldw	x,#21
- 259  007f bf00          	ldw	c_lreg,x
- 262  0081 81            	ret
- 263  0082               L56:
- 264                     ; 66 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
- 266  0082 be02          	ldw	x,_adcValues+2
- 267  0084 a30200        	cpw	x,#512
- 268  0087 240b          	jruge	L17
- 269                     ; 69 				return 3000000; // micrometri
- 271  0089 aec6c0        	ldw	x,#50880
- 272  008c bf02          	ldw	c_lreg+2,x
- 273  008e ae002d        	ldw	x,#45
- 274  0091 bf00          	ldw	c_lreg,x
- 277  0093 81            	ret
- 278  0094               L17:
- 279                     ; 72 			else if (adcValues.distanceSetPoint < SP_TH3_COUNT)
- 281  0094 be02          	ldw	x,_adcValues+2
- 282  0096 a303ff        	cpw	x,#1023
- 283  0099 240b          	jruge	L76
- 284                     ; 75 				return 4000000; // micrometri
- 286  009b ae0900        	ldw	x,#2304
- 287  009e bf02          	ldw	c_lreg+2,x
- 288  00a0 ae003d        	ldw	x,#61
- 289  00a3 bf00          	ldw	c_lreg,x
- 292  00a5 81            	ret
- 293  00a6               L76:
- 294                     ; 78 }
- 297  00a6 81            	ret
- 310                     	xref.b	_adcValues
- 311                     	xdef	_checkSetPoint
- 312                     	xdef	_analogRead
- 313                     	xdef	_analogInit
- 314                     	xref.b	c_lreg
- 333                     	end
+ 253  0075 2404          	jruge	L56
+ 254                     ; 65 				return 51;
+ 256  0077 ae0033        	ldw	x,#51
+ 259  007a 81            	ret
+ 260  007b               L56:
+ 261                     ; 67 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
+ 263  007b be02          	ldw	x,_adcValues+2
+ 264  007d a30200        	cpw	x,#512
+ 265  0080 2404          	jruge	L17
+ 266                     ; 71 				return 42;
+ 268  0082 ae002a        	ldw	x,#42
+ 271  0085 81            	ret
+ 272  0086               L17:
+ 273                     ; 78 				return 20;
+ 275  0086 ae0014        	ldw	x,#20
+ 278  0089 81            	ret
+ 291                     	xref.b	_adcValues
+ 292                     	xdef	_checkSetPoint
+ 293                     	xdef	_analogRead
+ 294                     	xdef	_analogInit
+ 313                     	end

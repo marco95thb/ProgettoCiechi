@@ -51,17 +51,27 @@
 #define MAX_DIST_SENS_BASSO 16 // 1.4m espresso in microM
 #define MIN_DIST_SENS_BASSO 7 // circa 30cm
 
-#define MIN_DIST_SENS_MEDIO 7 // circa 30 cm
+
 
 /* Al di sotto di un metro, la frequenza del suono e della
    vibrazione si fa piu insistente */
-#define SOGLIA_ALLARME_SENSORE_ALTO 23 // 1mt circa
 #define SOGLIA_ALLARME_SENSORE_BASSO 23 // 1mt circa
-#define SOGLIA_ALLARME_SENSORE_MEDIO 23 // 1mt circa
-#define SOGLIA_ALLARME_SENSORE_MEDIO_TH1 17
-#define SOGLIA_ALLARME_SENSORE_MEDIO_TH2 12
 
 
+#define SOGLIA_ALLARME_SENSORE_BASSO_TH1 17
+
+#define SOGLIA_ALLARME_SENSORE_ALTO 23 // 1mt circa
+#define SOGLIA_ALLARME_SENSORE_ALTO_TH1 17
+#define SOGLIA_ALLARME_SENSORE_ALTO_TH2 12
+
+#define SOGLIA_ALLARME_SENSORE_BASSO_TH2 12
+
+
+
+#define SOGLIA_ALLARME_SENSORE_MEDIO 15 // 1mt circa
+#define SOGLIA_ALLARME_SENSORE_MEDIO_TH1 12
+#define SOGLIA_ALLARME_SENSORE_MEDIO_TH2 9
+#define MIN_DIST_SENS_MEDIO 7 // circa 30 cm
 
 #define SENSOR1_TRIGGER_ON (uint8_t) (0b00001000)  
 #define SENSOR2_TRIGGER_ON (uint8_t) (0b00100000)
@@ -73,6 +83,8 @@ typedef struct  {
 	unsigned int d1;
 	unsigned int d2;
 	unsigned int d3;
+	unsigned int massima;
+	unsigned int minima;
 } tDistances;
 
 

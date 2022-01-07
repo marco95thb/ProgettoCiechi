@@ -58,23 +58,14 @@ void timInit(void)
 	
 	
 	
-	if(totalTicks >= 200) // 1 secondo
+	if(totalTicks >= 200) // in teoria dovrebbero essere 100ms
 	{
 		totalTicks = 0;
 		flagElapsed = 1;
 		
 	}
 
-	if(!debugToggle)
-	{
-		debugToggle = 1;
-		GPIOC->ODR |= SENSOR1_TRIGGER_ON;
-	}
-	else
-	{
-		debugToggle = 0;
-		GPIOC->ODR &= ~SENSOR1_TRIGGER_ON;
-	}
+
 	if(startCountPulses)
 	{
 		pulses++; // pulses è in base 500 microS
@@ -93,7 +84,7 @@ void timInit(void)
 			
 		}
 	}
-	gestisciBuzzerEVibrazione();
+	
 	
 	
 

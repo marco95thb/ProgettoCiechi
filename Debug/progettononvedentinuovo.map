@@ -1,5 +1,5 @@
 
-Map of Debug\progettononvedentinuovo.sm8 from link file Debug\progettononvedentinuovo.lkf - Wed Dec 15 12:29:04 2021
+Map of Debug\progettononvedentinuovo.sm8 from link file Debug\progettononvedentinuovo.lkf - Fri Jan  7 13:05:43 2022
 
 
                                --------
@@ -7,17 +7,17 @@ Map of Debug\progettononvedentinuovo.sm8 from link file Debug\progettononvedenti
                                --------
 
 start 00008080 end 00008084 length     4 segment .const
-start 000080a2 end 000087e2 length  1856 segment .text
+start 000080a4 end 00008917 length  2163 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
-start 00000000 end 00000016 length    22 segment .bsct, initialized
-start 0000808c end 000080a2 length    22 segment .bsct, from
-start 00000016 end 00000072 length    92 segment .ubsct
-start 00000072 end 00000072 length     0 segment .bit
-start 00000072 end 00000072 length     0 segment .share
+start 00000000 end 00000018 length    24 segment .bsct, initialized
+start 0000808c end 000080a4 length    24 segment .bsct, from
+start 00000018 end 00000079 length    97 segment .ubsct
+start 00000079 end 00000079 length     0 segment .bit
+start 00000079 end 00000079 length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 0000052a length  1322 segment .info.
-start 00000000 end 0000147c length  5244 segment .debug
+start 00000000 end 0000168b length  5771 segment .debug
 start 00008000 end 00008080 length   128 segment .const
 start 00008084 end 0000808c length     8 segment .init
 
@@ -27,23 +27,23 @@ start 00008084 end 0000808c length     8 segment .init
                                -------
 
 C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8:
-start 000080a2 end 000080f2 length    80 section .text
+start 000080a4 end 000080f4 length    80 section .text
 start 00000100 end 00000100 length     0 section .bss
-start 00000016 end 00000016 length     0 section .ubsct
+start 00000018 end 00000018 length     0 section .ubsct
 start 00000000 end 00000034 length    52 section .info.
 
 Debug\analog.o:
-start 000080f2 end 00008199 length   167 section .text
+start 000080f4 end 0000817e length   138 section .text
 start 00000000 end 00000168 length   360 section .debug
 start 00000034 end 000000a0 length   108 section .info.
 
 Debug\buzzer.o:
-start 00008199 end 00008244 length   171 section .text
+start 0000817e end 00008229 length   171 section .text
 start 00000168 end 0000037b length   531 section .debug
 start 000000a0 end 0000010c length   108 section .info.
 
 Debug\clock.o:
-start 00008244 end 00008255 length    17 section .text
+start 00008229 end 0000823a length    17 section .text
 start 0000037b end 0000042f length   180 section .debug
 start 0000010c end 00000177 length   107 section .info.
 
@@ -53,57 +53,57 @@ start 0000042f end 000004ff length   208 section .debug
 start 00000177 end 000001e3 length   108 section .info.
 
 Debug\gpio.o:
-start 00008255 end 000084bd length   616 section .text
-start 00000000 end 00000001 length     1 section .bsct
-start 000004ff end 000009ea length  1259 section .debug
+start 0000823a end 0000854b length   785 section .text
+start ******** end ******** length     0 section .bsct *** removed ***
+start 000004ff end 00000b3f length  1600 section .debug
 start 000001e3 end 0000024d length   106 section .info.
 
 Debug\main.o:
-start 000084bd end 000086b9 length   508 section .text
-start 00000001 end 00000012 length    17 section .bsct
-start 00000016 end 00000065 length    79 section .ubsct
-start 000009ea end 00001137 length  1869 section .debug
+start 0000854b end 00008823 length   728 section .text
+start 00000000 end 00000014 length    20 section .bsct
+start 00000018 end 0000006c length    84 section .ubsct
+start 00000b3f end 00001346 length  2055 section .debug
 start 0000024d end 000002b7 length   106 section .info.
 
 Debug\tim.o:
-start 000086b9 end 0000877b length   194 section .text
-start 00000012 end 00000016 length     4 section .bsct
-start 00000065 end 00000068 length     3 section .ubsct
-start 00001137 end 00001311 length   474 section .debug
+start 00008823 end 000088b0 length   141 section .text
+start 00000014 end 00000018 length     4 section .bsct
+start 0000006c end 0000006f length     3 section .ubsct
+start 00001346 end 00001520 length   474 section .debug
 start 000002b7 end 00000320 length   105 section .info.
 start 00008080 end 00008084 length     4 section .const
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o:
-start 0000877b end 0000879f length    36 section .text
+start 000088b0 end 000088d4 length    36 section .text
 start 00000320 end 0000034f length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o:
-start 0000879f end 000087bf length    32 section .text
+start 000088d4 end 000088f4 length    32 section .text
 start 0000034f end 0000037e length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lgadc.o:
-start 000087bf end 000087cf length    16 section .text
+start 000088f4 end 00008904 length    16 section .text
 start 0000037e end 000003ae length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lreg.o:
-start 00000068 end 0000006c length     4 section .ubsct
+start 0000006f end 00000073 length     4 section .ubsct
 start 000003ae end 000003dd length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o:
-start 000087cf end 000087e1 length    18 section .text
+start 00008904 end 00008916 length    18 section .text
 start 000003dd end 0000040c length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)xreg.o:
-start 0000006c end 0000006f length     3 section .ubsct
+start 00000073 end 00000076 length     3 section .ubsct
 start 0000040c end 0000043b length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)yreg.o:
-start 0000006f end 00000072 length     3 section .ubsct
+start 00000076 end 00000079 length     3 section .ubsct
 start 0000043b end 0000046a length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 000087e1 end 000087e2 length     1 section .text
-start 00001311 end 0000147c length   363 section .debug
+start 00008916 end 00008917 length     1 section .text
+start 00001520 end 0000168b length   363 section .debug
 start 0000046a end 000004e5 length   123 section .info.
 start 00008000 end 00008080 length   128 section .const
 
@@ -114,8 +114,8 @@ start 00008000 end 00008080 length   128 section .const
 
 Debug\analog.o:
 _analogInit                        2   (2)
-_analogRead                   >    6   (6)
-_checkSetPoint                >    2   (2)
+_analogRead                        6   (6)
+_checkSetPoint                     2   (2)
 
 Debug\buzzer.o:
 _Buzzer_Calibration           >   10   (8)
@@ -128,23 +128,24 @@ _clockInit                         2   (2)
 
 Debug\gpio.o:
 _checkDecharge                >    2   (2)
-_debounceBatteriaScarica      >    2   (2)
-_debounceFineCarica           >    2   (2)
-_debounceInizioCarica         >    2   (2)
+_debounceBatteriaScarica           2   (2)
+_debounceFineCarica                2   (2)
+_debounceInizioCarica              2   (2)
 _debounceTasto                     2   (2)
 _gestionePulsante             >    2   (2)
-_gestisciBuzzerEVibrazione         2   (2)
+_gestisciBuzzerEVibrazione    >    2   (2)
 _gpioInit                          2   (2)
 _segnalazioneAccensione            4   (2)
-_segnalazioneBatteriaScarica  >    2   (2)
-_segnalazioneFineCarica            2   (2)
-_segnalazioneInizioCarica          2   (2)
+_segnalazioneBatteriaScarica  >    8   (6)
+_segnalazioneFineCarica       >    8   (6)
+_segnalazioneInizioCarica     >    8   (6)
+_segnalazioneOstacolo             12   (10)
 _segnalazioneSpegnimento           8   (6)
 f_startStopTriggersPORTA      >    6   (6)
 f_startStopTriggersPORTB      >    6   (6)
 
 Debug\main.o:
-_main                         >   10   (2)
+_main                         >   24   (12)
 
 Debug\stm8_interrupt_vector.o:
 f_NonHandledInterrupt         >    6   (6)
@@ -152,9 +153,9 @@ f_NonHandledInterrupt         >    6   (6)
 Debug\tim.o:
 _aspetta                           2   (2)
 _timInit                           2   (2)
-f_tim1Elapsed                 >   18   (16)
+f_tim1Elapsed                 >   12   (10)
 
-Stack size: 28
+Stack size: 36
 
 
                               ---------
@@ -166,72 +167,82 @@ Stack size: 28
 
    3 > __stext: (0)
 
-   4 > _analogRead: (6)
+   4 > _checkDecharge: (2)
 
-   5 > _checkDecharge: (2)
+   5 > _driveBuzzer: (2)
 
-   6 > _checkSetPoint: (2)
+   6 > _gestionePulsante: (2)
 
-   7 > _debounceBatteriaScarica: (2)
+   7 > _gestisciBuzzerEVibrazione: (2)
 
-   8 > _debounceFineCarica: (2)
-
-   9 > _debounceInizioCarica: (2)
-
-  10 > _driveBuzzer: (2)
-
-  11 > _gestionePulsante: (2)
-
-  12 > _main: (2)
-  13      + _analogInit: (2)
-  14      + _buzzerInit: (2)
-  15      + _clockInit: (2)
-  16      + _debounceTasto: (2)
-  17      + _gpioInit: (2)
-  18      + _segnalazioneAccensione: (2)
-  19      |    + _aspetta: (2)
+   8 > _main: (12)
+   9      + _analogInit: (2)
+  10      + _analogRead: (6)
+  11      + _buzzerInit: (2)
+  12      + _checkSetPoint: (2)
+  13      + _clockInit: (2)
+  14      + _debounceBatteriaScarica: (2)
+  15      + _debounceFineCarica: (2)
+  16      + _debounceInizioCarica: (2)
+  17      + _debounceTasto: (2)
+  18      + _gpioInit: (2)
+  19      + _segnalazioneAccensione: (2)
+  20      |    + _aspetta: (2)
           | 
-  20      + _segnalazioneFineCarica: (2)
-  21      + _segnalazioneInizioCarica: (2)
-  22      + _segnalazioneSpegnimento: (6)
-  23      |    + _aspetta --> 19
+  21      + _segnalazioneOstacolo: (10)
+  22      |    + _aspetta --> 20
           | 
-  24      + _timInit: (2)
+  23      + _segnalazioneSpegnimento: (6)
+  24      |    + _aspetta --> 20
+          | 
+  25      + _timInit: (2)
        
-  25 > _segnalazioneBatteriaScarica: (2)
-
-  26 > f_NonHandledInterrupt: (6)
-
-  27 > f_startStopTriggersPORTA: (6)
-
-  28 > f_startStopTriggersPORTB: (6)
-
-  29 > f_tim1Elapsed: (16)
-  30      + _gestisciBuzzerEVibrazione: (2)
+  26 > _segnalazioneBatteriaScarica: (6)
+  27      + _aspetta --> 20
        
-  31   _analogInit --> 13
+  28 > _segnalazioneFineCarica: (6)
+  29      + _aspetta --> 20
+       
+  30 > _segnalazioneInizioCarica: (6)
+  31      + _aspetta --> 20
+       
+  32 > f_NonHandledInterrupt: (6)
 
-  32   _aspetta --> 19
+  33 > f_startStopTriggersPORTA: (6)
 
-  33   _buzzerInit --> 14
+  34 > f_startStopTriggersPORTB: (6)
 
-  34   _clockInit --> 15
+  35 > f_tim1Elapsed: (10)
 
-  35   _debounceTasto --> 16
+  36   _analogInit --> 9
 
-  36   _gestisciBuzzerEVibrazione --> 30
+  37   _analogRead --> 10
 
-  37   _gpioInit --> 17
+  38   _aspetta --> 20
 
-  38   _segnalazioneAccensione --> 18
+  39   _buzzerInit --> 11
 
-  39   _segnalazioneFineCarica --> 20
+  40   _checkSetPoint --> 12
 
-  40   _segnalazioneInizioCarica --> 21
+  41   _clockInit --> 13
 
-  41   _segnalazioneSpegnimento --> 22
+  42   _debounceBatteriaScarica --> 14
 
-  42   _timInit --> 24
+  43   _debounceFineCarica --> 15
+
+  44   _debounceInizioCarica --> 16
+
+  45   _debounceTasto --> 17
+
+  46   _gpioInit --> 18
+
+  47   _segnalazioneAccensione --> 19
+
+  48   _segnalazioneOstacolo --> 21
+
+  49   _segnalazioneSpegnimento --> 23
+
+  50   _timInit --> 25
 
 
 
@@ -239,12 +250,12 @@ Stack size: 28
                                Symbols
                                -------
 
-_Buzzer_Calibration            000081c4   defined in Debug\buzzer.o section .text
-_Buzzer_Init                   00008218   defined in Debug\buzzer.o section .text
-___flaggami                    00000016   defined in Debug\main.o section .ubsct
+_Buzzer_Calibration            000081a9   defined in Debug\buzzer.o section .text
+_Buzzer_Init                   000081fd   defined in Debug\buzzer.o section .text
+___flaggami                    00000018   defined in Debug\main.o section .ubsct
 __endmem                       000001fe   defined in command file
                                           *** not used ***
-__endzp                        00000072   defined in command file section .ubsct
+__endzp                        00000079   defined in command file section .ubsct
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
 __idesc__                      00008084   defined in linker section .init
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
@@ -254,126 +265,129 @@ __stack                        000003ff   defined in command file
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
 __startmem                     00000100   defined in command file section .bss
                                           *** not used ***
-__stext                        000080a2   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
+__stext                        000080a4   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
                                           used in Debug\stm8_interrupt_vector.o
 __vectab                       00008000   defined in Debug\stm8_interrupt_vector.o section .const
-_adcValues                     00000061   defined in Debug\main.o section .ubsct
+_adcValues                     00000068   defined in Debug\main.o section .ubsct
                                           used in Debug\analog.o
-_analogInit                    000080f2   defined in Debug\analog.o section .text
+_analogInit                    000080f4   defined in Debug\analog.o section .text
                                           used in Debug\main.o
-_analogRead                    00008107   defined in Debug\analog.o section .text
-_aspetta                       00008770   defined in Debug\tim.o section .text
+_analogRead                    00008109   defined in Debug\analog.o section .text
+                                          used in Debug\main.o
+_aspetta                       000088a5   defined in Debug\tim.o section .text
                                           used in Debug\gpio.o
-_batteriaScaricaSignalled      00000008   defined in Debug\main.o section .bsct, initialized
-_buzzer                        00000021   defined in Debug\main.o section .ubsct
+_batteriaScaricaSignalled      00000007   defined in Debug\main.o section .bsct, initialized
+_buzzer                        00000023   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o
-_buzzerInit                    00008199   defined in Debug\buzzer.o section .text
+_buzzerInit                    0000817e   defined in Debug\buzzer.o section .text
                                           used in Debug\main.o
-_checkDecharge                 0000833e   defined in Debug\gpio.o section .text
-_checkSetPoint                 00008162   defined in Debug\analog.o section .text
-_clockInit                     00008244   defined in Debug\clock.o section .text
+_checkDecharge                 00008320   defined in Debug\gpio.o section .text
+_checkSetPoint                 00008164   defined in Debug\analog.o section .text
                                           used in Debug\main.o
-_contatoreAttesa               00000014   defined in Debug\tim.o section .bsct, initialized
-_contatoreLunghezzaPressione   00000017   defined in Debug\main.o section .ubsct
+_clockInit                     00008229   defined in Debug\clock.o section .text
+                                          used in Debug\main.o
+_contatoreAttesa               00000016   defined in Debug\tim.o section .bsct, initialized
+_contatoreLunghezzaPressione   00000019   defined in Debug\main.o section .ubsct
                                           used in Debug\tim.o
-_countDebug                    00000012   defined in Debug\tim.o section .bsct, initialized
-_countInputB                   00000009   defined in Debug\main.o section .bsct, initialized
+_countDebug                    00000014   defined in Debug\tim.o section .bsct, initialized
+_countInputB                   00000008   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_countInputBS                  0000000c   defined in Debug\main.o section .bsct, initialized
+_countInputBS                  0000000b   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_countInputFC                  0000000b   defined in Debug\main.o section .bsct, initialized
+_countInputFC                  0000000a   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_countInputIC                  0000000a   defined in Debug\main.o section .bsct, initialized
+_countInputIC                  00000009   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_countPulsante                 00000002   defined in Debug\main.o section .bsct, initialized
+_countPulsante                 00000001   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_debounceBatteriaScarica       00008425   defined in Debug\gpio.o section .text
-_debounceFineCarica            000083fb   defined in Debug\gpio.o section .text
-_debounceInizioCarica          000083d3   defined in Debug\gpio.o section .text
-_debounceTasto                 00008453   defined in Debug\gpio.o section .text
+_debounceBatteriaScarica       00008463   defined in Debug\gpio.o section .text
                                           used in Debug\main.o
-_debugToggle                   00000000   defined in Debug\gpio.o section .bsct, initialized
-                                          used in Debug\tim.o
+_debounceFineCarica            00008439   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_debounceInizioCarica          00008411   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_debounceTasto                 00008491   defined in Debug\gpio.o section .text
+                                          used in Debug\main.o
+_debugToggle                   ********   *** removed from Debug\gpio.o ***
 _delay                         ********   *** removed from Debug\common.o ***
-_deviAspettare                 00000067   defined in Debug\tim.o section .ubsct
-_distanze                      00000050   defined in Debug\main.o section .ubsct
+_deviAspettare                 0000006e   defined in Debug\tim.o section .ubsct
+_distanze                      00000052   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o
-_driveBuzzer                   000081b6   defined in Debug\buzzer.o section .text
-_exit                          000080f0   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
-_fineCarica                    0000001f   defined in Debug\main.o section .ubsct
+_driveBuzzer                   0000819b   defined in Debug\buzzer.o section .text
+_exit                          000080f2   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8 section .text
+_fineCarica                    00000021   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o
-_fineCaricaSignalled           0000001d   defined in Debug\main.o section .ubsct
-_flagBatteriaScarica           00000007   defined in Debug\main.o section .bsct, initialized
+_fineCaricaSignalled           0000001f   defined in Debug\main.o section .ubsct
+_flagBatteriaScarica           00000006   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_flagElapsed                   00000060   defined in Debug\main.o section .ubsct
+_flagElapsed                   00000067   defined in Debug\main.o section .ubsct
                                           used in Debug\tim.o
-_gestionePulsante              00008292   defined in Debug\gpio.o section .text
-_gestisciBuzzerEVibrazione     0000847e   defined in Debug\gpio.o section .text
-                                          used in Debug\tim.o
-_gpioInit                      00008255   defined in Debug\gpio.o section .text
+_gestionePulsante              00008277   defined in Debug\gpio.o section .text
+_gestisciBuzzerEVibrazione     000084bc   defined in Debug\gpio.o section .text
+_gpioInit                      0000823a   defined in Debug\gpio.o section .text
                                           used in Debug\main.o
-_inizioCarica                  00000020   defined in Debug\main.o section .ubsct
+_inizioCarica                  00000022   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o
-_inizioCaricaSignalled         0000001e   defined in Debug\main.o section .ubsct
-_main                          000084bd   defined in Debug\main.o section .text
+_inizioCaricaSignalled         00000020   defined in Debug\main.o section .ubsct
+_main                          0000854b   defined in Debug\main.o section .text
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
-_oneShotDrive                  00000006   defined in Debug\main.o section .bsct, initialized
-_oneShotPulsante               0000000f   defined in Debug\main.o section .bsct, initialized
-_priorita                      0000004f   defined in Debug\main.o section .ubsct
-_pulsante                      00000001   defined in Debug\main.o section .bsct, initialized
+_nonConsiderare                00000013   defined in Debug\main.o section .bsct, initialized
+_oneShotDrive                  00000005   defined in Debug\main.o section .bsct, initialized
+_oneShotPulsante               0000000e   defined in Debug\main.o section .bsct, initialized
+_priorita                      00000051   defined in Debug\main.o section .ubsct
+_pulsante                      00000000   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_pulses                        0000005c   defined in Debug\main.o section .ubsct
+_pulses                        00000062   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o Debug\tim.o
-_quantoDeviAspettare           00000065   defined in Debug\tim.o section .ubsct
-_segnalazioneAccensione        0000837e   defined in Debug\gpio.o section .text
+_quantoDeviAspettare           0000006c   defined in Debug\tim.o section .ubsct
+_segnalazioneAccensione        00008360   defined in Debug\gpio.o section .text
                                           used in Debug\main.o
-_segnalazioneBatteriaScarica   000083c3   defined in Debug\gpio.o section .text
-_segnalazioneFineCarica        000083af   defined in Debug\gpio.o section .text
+_segnalazioneBatteriaScarica   000083dd   defined in Debug\gpio.o section .text
+_segnalazioneFineCarica        000083a9   defined in Debug\gpio.o section .text
+_segnalazioneInizioCarica      00008375   defined in Debug\gpio.o section .text
+_segnalazioneOstacolo          000084fb   defined in Debug\gpio.o section .text
                                           used in Debug\main.o
-_segnalazioneInizioCarica      0000839b   defined in Debug\gpio.o section .text
+_segnalazioneSpegnimento       0000832c   defined in Debug\gpio.o section .text
                                           used in Debug\main.o
-_segnalazioneSpegnimento       0000834a   defined in Debug\gpio.o section .text
-                                          used in Debug\main.o
-_setPoint                      0000005f   defined in Debug\main.o section .ubsct
-_startCountPulses              0000005e   defined in Debug\main.o section .ubsct
+_sensoreAttivo                 00000011   defined in Debug\main.o section .bsct, initialized
+_setPoint                      00000065   defined in Debug\main.o section .ubsct
+_startCountPulses              00000064   defined in Debug\main.o section .ubsct
                                           used in Debug\gpio.o Debug\tim.o
-_stateMachineSensor            00000004   defined in Debug\main.o section .bsct, initialized
+_stateMachineSensor            00000003   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_statoDispositivo              0000000e   defined in Debug\main.o section .bsct, initialized
-_statoPulsante                 0000000d   defined in Debug\main.o section .bsct, initialized
+_statoDispositivo              0000000d   defined in Debug\main.o section .bsct, initialized
+_statoPulsante                 0000000c   defined in Debug\main.o section .bsct, initialized
                                           used in Debug\gpio.o
-_statoPulsante_prec            00000005   defined in Debug\main.o section .bsct, initialized
-_supportoDelayBloccante        00000019   defined in Debug\main.o section .ubsct
+_statoPulsante_prec            00000004   defined in Debug\main.o section .bsct, initialized
+_supportoDelayBloccante        0000001b   defined in Debug\main.o section .ubsct
                                           used in Debug\tim.o
-_timInit                       000086b9   defined in Debug\tim.o section .text
+_timInit                       00008823   defined in Debug\tim.o section .text
                                           used in Debug\main.o
-_tmp                           0000005a   defined in Debug\main.o section .ubsct
-_totalTicks                    00000056   defined in Debug\main.o section .ubsct
+_tmp                           00000060   defined in Debug\main.o section .ubsct
+_totalTicks                    0000005c   defined in Debug\main.o section .ubsct
                                           used in Debug\tim.o
-c_imul                         0000877b   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o section .text
+c_imul                         000088b0   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o section .text
                                           used in Debug\buzzer.o
-c_lcmp                         0000879f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o section .text
+c_lcmp                         000088d4   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o section .text
                                           used in Debug\tim.o
-c_lgadc                        000087bf   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lgadc.o section .text
+c_lgadc                        000088f4   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lgadc.o section .text
                                           used in Debug\tim.o
-c_lreg                         00000068   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lreg.o section .ubsct
-                                          used in Debug\analog.o Debug\tim.o
+c_lreg                         0000006f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lreg.o section .ubsct
+                                          used in Debug\tim.o
                                                   (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)lcmp.o
                                                   (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o
-c_ltor                         000087cf   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o section .text
+c_ltor                         00008904   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)ltor.o section .text
                                           used in Debug\tim.o
-c_x                            0000006c   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)xreg.o section .ubsct
+c_x                            00000073   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)xreg.o section .ubsct
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
-                                                  Debug\buzzer.o Debug\main.o
-                                                  Debug\tim.o
+                                                  Debug\buzzer.o
                                                   (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)imul.o
-c_y                            0000006f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)yreg.o section .ubsct
+c_y                            00000076   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\libm0.sm8)yreg.o section .ubsct
                                           used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\lib\crtsi0.sm8
-                                                  Debug\tim.o
-f_NonHandledInterrupt          000087e1   defined in Debug\stm8_interrupt_vector.o section .text
-f_startStopTriggersPORTA       00008315   defined in Debug\gpio.o section .text
+f_NonHandledInterrupt          00008916   defined in Debug\stm8_interrupt_vector.o section .text
+f_startStopTriggersPORTA       000082fa   defined in Debug\gpio.o section .text
                                           used in Debug\stm8_interrupt_vector.o
-f_startStopTriggersPORTB       000082c9   defined in Debug\gpio.o section .text
+f_startStopTriggersPORTB       000082ae   defined in Debug\gpio.o section .text
                                           used in Debug\stm8_interrupt_vector.o
-f_tim1Elapsed                  000086d6   defined in Debug\tim.o section .text
+f_tim1Elapsed                  00008840   defined in Debug\tim.o section .text
                                           used in Debug\stm8_interrupt_vector.o

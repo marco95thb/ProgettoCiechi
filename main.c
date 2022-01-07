@@ -10,7 +10,7 @@
 #include "common.h"
 tAnalog adcValues;
 unsigned char flagElapsed;
-unsigned char setPoint;
+unsigned int setPoint;
 unsigned char pulsante = 0;
 unsigned short countPulsante = 0;
 //del timer deve abbassarmelo
@@ -20,7 +20,7 @@ unsigned int pulses;
 
 
 unsigned int tmp;
-unsigned char stateMachineSensor = START_MEASURE_2SENSOR;
+unsigned char stateMachineSensor = START_MEASURE_1SENSOR;
 
 unsigned long totalTicks;
 tDistances distanze;
@@ -51,9 +51,12 @@ unsigned char statoDispositivo = ACCESO;
 unsigned char oneShotPulsante = 0;
 extern unsigned char debugToggle;
 static volatile int i = 0;
-
+int sensoreAttivo = 0;
+unsigned char nonConsiderare = 0;
 main()
 {
+	unsigned int distanzeArray[3];
+	int i;
 	disableInterrupts();
 	
 	clockInit();
@@ -93,19 +96,10 @@ main()
 		{
 			flagElapsed = 0;
 			
-			//if(!debugToggle)
-			//{
-			//	debugToggle = 0xFF;
-		//		GPIOC->ODR |= SENSOR1_TRIGGER_ON;
-			//	GPIOD->ODR |= BUZZER_E_VIBRATORE_ON;
-			//}
-			//else
-			//{
-			//	debugToggle = 0x00;
-			//	GPIOC->ODR &= ~SENSOR1_TRIGGER_ON;
-			//	GPIOD->ODR &= ~BUZZER_E_VIBRATORE_ON;
-				
-		//	}
+			analogRead();
+			setPoint = checkSetPoint();
+			
+			
 			
 			
 			switch(stateMachineSensor)
@@ -117,8 +111,6 @@ main()
 					GPIOC->ODR |= SENSOR1_TRIGGER_ON;
 					for(i = 0;i < 15;i++);
 					GPIOC->ODR &= (~SENSOR1_TRIGGER_ON);
-					
-				stateMachineSensor = 1;
 					break;
 				case START_MEASURE_2SENSOR: // impulso
 				// start
@@ -146,24 +138,117 @@ main()
 				case END_MEASURE_2SENSOR:
 				case END_MEASURE_3SENSOR:
 				
-				if(stateMachineSensor == END_MEASURE_2SENSOR)
+				if(stateMachineSensor == END_MEASURE_3SENSOR)
 				{
-					stateMachineSensor = START_MEASURE_2SENSOR;
+					stateMachineSensor = START_MEASURE_1SENSOR;
+					distanze.minima = 9999;
+					distanze.massima = 0;
+					sensoreAttivo = 0;
+					if((distanze.d1 < setPoint) && (distanze.d1 >= MIN_DIST_SENS_ALTO	)) // legge solo se < 1.4m
+					{
+						distanzeArray[0] = distanze.d1;
+						sensoreAttivo = 1;
+					}
+					else
+						distanzeArray[0] = 9999;
+						
+					if(distanze.d2 < 20) // legge solo se < 1.4m
+					{
+						distanzeArray[1] = distanze.d2;
+						sensoreAttivo = 2;
+					}
+					else
+						distanzeArray[1] = 9999;
+						
+						if(distanze.d3 < 20) // legge solo se < soglia
+						{
+						distanzeArray[2] = distanze.d3;
+						sensoreAttivo = 3;
+						}
+					else
+						distanzeArray[2] = 9999;
+						
+					
+					for(i=0;i<3;i++)
+					{
+						if((distanzeArray[i] < distanze.minima) && (distanzeArray[i] >= MIN_DIST_SENS_ALTO))
+							distanze.minima = distanzeArray[i];
+							
+						if(distanzeArray[i] > distanze.massima)
+							distanze.massima = distanzeArray[i];
+					}
+				nonConsiderare = 0;
+							if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO) // maggiore di 30cm
+							&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_ALTO_TH1))
+							{
+								if(sensoreAttivo == 3) // è un esterno
+									segnalazioneOstacolo(200,1,3);
+						else if(sensoreAttivo == 2) // è l'altro esterno
+						{
+								segnalazioneOstacolo(200,1,5);
+							}
+						else if(sensoreAttivo == 1) 
+						{
+						//	segnalazioneOstacolo(200,1,7);
+						
+						}
+								
+						
+							
+							}
+						else if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO_TH1) // maggiore di 30cm
+						&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_ALTO_TH2))
+						{
+							nonConsiderare = 1;
+							segnalazioneOstacolo(1200,0,0);
+						
+						}
+						else if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO_TH2) // maggiore di 30cm
+						&& (distanze.minima >= MIN_DIST_SENS_ALTO))
+						{
+							nonConsiderare = 1;
+							segnalazioneOstacolo(1200,0,0);
+						
+						}
+						
+						if((sensoreAttivo == 1) && 
+						(distanze.minima > MIN_DIST_SENS_ALTO) && 
+						(distanze.minima < setPoint) &&
+						(nonConsiderare == 0))
+						{
+							segnalazioneOstacolo(100,1,7);
+							segnalazioneOstacolo(500,0,0);
+						}
+						
+					
+					
+					
+					
+					
+			
 					
 				}
-				//stateMachineSensor++;
+				else
+					stateMachineSensor++;
 					break;
 				
 				default:break;
 				
 				
 			}
+			
+			statoPulsante_prec = statoPulsante;
+			debounceTasto();
+			debounceInizioCarica();
+			debounceFineCarica();
+			debounceBatteriaScarica();
+			
 						
 			
 			if((inizioCarica) && (!inizioCaricaSignalled))
 			{
 				inizioCaricaSignalled = 0xFF;
-				segnalazioneInizioCarica();
+				//segnalazioneInizioCarica();
 			}
 			else if (inizioCarica == 0)
 			{
@@ -174,7 +259,7 @@ main()
 			{
 			
 				fineCaricaSignalled = 0xFF;
-				segnalazioneFineCarica();
+				//segnalazioneFineCarica();
 			}
 			else if (fineCarica == 0)
 			{
@@ -185,7 +270,7 @@ main()
 			if((flagBatteriaScarica) && (!batteriaScaricaSignalled))
 			{
 				batteriaScaricaSignalled = 0xFF;
-			//	segnalazioneBatteriaScarica();
+				//segnalazioneBatteriaScarica();
 				
 				
 			}
@@ -196,13 +281,8 @@ main()
 				
 			}
 		
-			//analogRead();
-			//setPoint = checkSetPoint();
-			statoPulsante_prec = statoPulsante;
-			debounceTasto();
-		//	debounceInizioCarica();
-		//	debounceFineCarica();
-		//	debounceBatteriaScarica();
+			
+			
 				
 				if((!statoPulsante_prec) && (statoPulsante))
 				{
@@ -236,100 +316,10 @@ main()
 			
 			
 			
-			if((distanze.d1 < distanze.d2) &&
-			(distanze.d1 < distanze.d3) &&
-			(distanze.d1 >= MIN_DIST_SENS_ALTO))
-				priorita = PRIORITA_SENSORE_1; // set priority
-			else if((distanze.d3 < distanze.d1) &&
-			(distanze.d3 < distanze.d2) &&
-			(distanze.d3 >= MIN_DIST_SENS_BASSO))
-				priorita = PRIORITA_SENSORE_3;// set priority
-			else if((distanze.d2 < distanze.d1) &&
-			(distanze.d2 < distanze.d3) &&
-			(distanze.d2 >= MIN_DIST_SENS_MEDIO) &&
-			(distanze.d2 < setPoint))
-				priorita = PRIORITA_SENSORE_2;// set priority
-			else
-				priorita = 0;// set priority
-				
-				priorita = 0; // così non vado là
-				
-				priorita = PRIORITA_SENSORE_2;
-				
-				if(priorita != 0)
-				{
-					
-					switch(priorita)
-					{
-						case PRIORITA_SENSORE_1:
-						if(distanze.d1 >= SOGLIA_ALLARME_SENSORE_ALTO)
-						{
-							buzzer.distanceMonitoring.countHigh = COUNT_HIGH_1_FREQ;
-							buzzer.distanceMonitoring.countLow = COUNT_LOW_1_FREQ;
-						}
-						else
-						{
-							// formula inventata ma ragionata!
-							// al diminuire della distanza, suona più velocemente
-							
-							buzzer.distanceMonitoring.countHigh = (distanze.d1 * 5);
-							buzzer.distanceMonitoring.countLow = buzzer.distanceMonitoring.countHigh;
-						}
-						break;
-						case PRIORITA_SENSORE_2:
-						
-						if((distanze.d2 < SOGLIA_ALLARME_SENSORE_MEDIO) // maggiore di 30cm
-						&& (distanze.d2 >= SOGLIA_ALLARME_SENSORE_MEDIO_TH1))
-						{
-						buzzer.distanceMonitoring.enabled = 1;
-						buzzer.distanceMonitoring.countHigh = 800;
-						buzzer.distanceMonitoring.countLow = 800;
-							
-						}
-						else if((distanze.d2 < SOGLIA_ALLARME_SENSORE_MEDIO_TH1) // maggiore di 30cm
-						&& (distanze.d2 >= SOGLIA_ALLARME_SENSORE_MEDIO_TH2))
-						{
-							buzzer.distanceMonitoring.enabled = 1;
-							buzzer.distanceMonitoring.countHigh = 450;
-							buzzer.distanceMonitoring.countLow = 450;
-						
-						}
-						else if((distanze.d2 < SOGLIA_ALLARME_SENSORE_MEDIO_TH2) // maggiore di 30cm
-						&& (distanze.d2 >= MIN_DIST_SENS_MEDIO))
-						{
-							buzzer.distanceMonitoring.enabled = 1;
-							buzzer.distanceMonitoring.countHigh = 250;
-							buzzer.distanceMonitoring.countLow = 250;
-						
-						}
-						else
-						{
-							buzzer.distanceMonitoring.enabled = 0;
-						}
-						break;
-						case PRIORITA_SENSORE_3:
-						if(distanze.d3 >= SOGLIA_ALLARME_SENSORE_BASSO)
-						{
-							buzzer.distanceMonitoring.countHigh = COUNT_HIGH_3_FREQ;
-							buzzer.distanceMonitoring.countLow = COUNT_LOW_3_FREQ;
-						}
-						else
-						{
-							buzzer.distanceMonitoring.countHigh = (distanze.d3 * 5);
-							buzzer.distanceMonitoring.countLow = buzzer.distanceMonitoring.countHigh;
-						}
-						break;
-					}
-					
-					
-				}
-				else
-				{
-					buzzer.distanceMonitoring.enabled = 0;
-				}
-			
+	
 			
 		}
+		
 				
 				
 				

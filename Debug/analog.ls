@@ -94,23 +94,23 @@
  243                     ; 61 {
  244                     	switch	.text
  245  0070               _checkSetPoint:
- 249                     ; 62 	if(adcValues.distanceSetPoint < SP_TH1_COUNT) // 1.4m
+ 249                     ; 62 	if(adcValues.distanceSetPoint < SP_TH1_COUNT)
  251  0070 be02          	ldw	x,_adcValues+2
  252  0072 a30100        	cpw	x,#256
  253  0075 2404          	jruge	L56
- 254                     ; 65 				return 51;
+ 254                     ; 64 				return DISTANZA_4_0METRI;
  256  0077 ae0033        	ldw	x,#51
  259  007a 81            	ret
  260  007b               L56:
- 261                     ; 67 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
+ 261                     ; 66 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
  263  007b be02          	ldw	x,_adcValues+2
  264  007d a30200        	cpw	x,#512
  265  0080 2404          	jruge	L17
- 266                     ; 71 				return 42;
+ 266                     ; 68 				return DISTANZA_3_0METRI;
  268  0082 ae002a        	ldw	x,#42
  271  0085 81            	ret
  272  0086               L17:
- 273                     ; 78 				return 20;
+ 273                     ; 73 				return DISTANZA_1_4_METRI;
  275  0086 ae0014        	ldw	x,#20
  278  0089 81            	ret
  291                     	xref.b	_adcValues

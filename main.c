@@ -96,12 +96,6 @@ main()
 		{
 			flagElapsed = 0;
 			
-			analogRead();
-			setPoint = checkSetPoint();
-			
-			
-			
-			
 			switch(stateMachineSensor)
 			{
 				case START_MEASURE_1SENSOR: // impulso 
@@ -140,30 +134,28 @@ main()
 				
 				if(stateMachineSensor == END_MEASURE_3SENSOR)
 				{
+					analogRead();
+					setPoint = checkSetPoint();
 					stateMachineSensor = START_MEASURE_1SENSOR;
 					distanze.minima = 9999;
-					distanze.massima = 0;
 					sensoreAttivo = 0;
-					if((distanze.d1 < setPoint) && (distanze.d1 >= MIN_DIST_SENS_ALTO	)) // legge solo se < 1.4m
+					if((distanze.d1 < setPoint) && (distanze.d1 >= MINIMA_DISTANZA_SENSORI	)) // legge solo se < 1.4m
 					{
 						distanzeArray[0] = distanze.d1;
-						sensoreAttivo = 1;
 					}
 					else
 						distanzeArray[0] = 9999;
 						
-					if(distanze.d2 < 20) // legge solo se < 1.4m
+					if((distanze.d2 < DISTANZA_1_4_METRI) && (distanze.d2 >= MINIMA_DISTANZA_SENSORI)) // legge solo se < 1.4m
 					{
 						distanzeArray[1] = distanze.d2;
-						sensoreAttivo = 2;
 					}
 					else
 						distanzeArray[1] = 9999;
 						
-						if(distanze.d3 < 20) // legge solo se < soglia
+						if((distanze.d3 < DISTANZA_1_4_METRI) && (distanze.d3 >= MINIMA_DISTANZA_SENSORI)) // legge solo se < soglia
 						{
 						distanzeArray[2] = distanze.d3;
-						sensoreAttivo = 3;
 						}
 					else
 						distanzeArray[2] = 9999;
@@ -171,54 +163,56 @@ main()
 					
 					for(i=0;i<3;i++)
 					{
-						if((distanzeArray[i] < distanze.minima) && (distanzeArray[i] >= MIN_DIST_SENS_ALTO))
+						if((distanzeArray[i] < distanze.minima) && (distanzeArray[i] >= MINIMA_DISTANZA_SENSORI))
+						{
 							distanze.minima = distanzeArray[i];
+							sensoreAttivo = i + 1;
+						}
 							
-						if(distanzeArray[i] > distanze.massima)
-							distanze.massima = distanzeArray[i];
 					}
-				nonConsiderare = 0;
-							if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO) // maggiore di 30cm
-							&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_ALTO_TH1))
+					switch(sensoreAttivo)
+					{
+						case 2:
+						case 3:
+							if((distanze.minima < SOGLIA_ALLARME_SENSORE) // tra  1mt e un po meno
+							&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_TH1))
 							{
 								if(sensoreAttivo == 3) // è un esterno
 									segnalazioneOstacolo(200,1,3);
-						else if(sensoreAttivo == 2) // è l'altro esterno
-						{
-								segnalazioneOstacolo(200,1,5);
-							}
-						else if(sensoreAttivo == 1) 
-						{
-						//	segnalazioneOstacolo(200,1,7);
-						
-						}
-								
-						
+								else if(sensoreAttivo == 2) // è l'altro esterno
+								{
+									segnalazioneOstacolo(200,1,5);
+								}
 							
 							}
-						else if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO_TH1) // maggiore di 30cm
-						&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_ALTO_TH2))
+						else if((distanze.minima < SOGLIA_ALLARME_SENSORE_TH1) // tra un po mend di un mt e un altro po meno
+						&& (distanze.minima >= MINIMA_DISTANZA_SENSORI))
 						{
-							nonConsiderare = 1;
-							segnalazioneOstacolo(1200,0,0);
-						
-						}
-						else if((distanze.minima < SOGLIA_ALLARME_SENSORE_ALTO_TH2) // maggiore di 30cm
-						&& (distanze.minima >= MIN_DIST_SENS_ALTO))
-						{
-							nonConsiderare = 1;
+							
 							segnalazioneOstacolo(1200,0,0);
 						
 						}
 						
-						if((sensoreAttivo == 1) && 
-						(distanze.minima > MIN_DIST_SENS_ALTO) && 
-						(distanze.minima < setPoint) &&
-						(nonConsiderare == 0))
+						break;
+						case 1:
+						if((distanze.minima < SOGLIA_ALLARME_SENSORE_TH1) &&						
+						(distanze.minima >= MINIMA_DISTANZA_SENSORI))
+						{
+							segnalazioneOstacolo(1200,0,0);
+							
+						}
+						else if((distanze.minima < setPoint) &&
+						(distanze.minima >= SOGLIA_ALLARME_SENSORE_TH1))
 						{
 							segnalazioneOstacolo(100,1,7);
 							segnalazioneOstacolo(500,0,0);
 						}
+						break;
+						default:
+						break;
+					}
+						
+						
 						
 					
 					

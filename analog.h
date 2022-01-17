@@ -10,7 +10,7 @@
 
 #define SP_TH1_COUNT 256 
 #define SP_TH2_COUNT 512
-#define SP_TH3_COUNT 1023
+#define SP_TH3_COUNT 1024
 
 
 typedef struct

@@ -59,23 +59,18 @@ void analogRead(void)
 }
 unsigned int checkSetPoint(void)
 {
-	if(adcValues.distanceSetPoint < SP_TH1_COUNT) // 1.4m
+	if(adcValues.distanceSetPoint < SP_TH1_COUNT)
 			{
-				// il codice funziona
-				return 51;
+				return DISTANZA_4_0METRI;
 			}
 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
 			{
-				// il codice funziona
-				// SP_TH1_COUNT < X < SP_TH2_COUNT
-				return 42;
+				return DISTANZA_3_0METRI;
 			
 			}
 			else// if (adcValues.distanceSetPoint < SP_TH3_COUNT)
 			{
-				// il codice funziona
-				// SP_TH2_COUNT < X < SP_TH3_COUNT
-				return 20;
+				return DISTANZA_1_4_METRI;
 			}
 			
 }

@@ -58,7 +58,7 @@ void timInit(void)
 	
 	
 	
-	if(totalTicks >= 200) // in teoria dovrebbero essere 100ms
+	if(totalTicks >= 150) // era 200. Proviamo a mettere 150
 	{
 		totalTicks = 0;
 		flagElapsed = 1;

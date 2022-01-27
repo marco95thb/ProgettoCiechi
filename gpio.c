@@ -15,7 +15,9 @@ extern unsigned long supportoDelayBloccante;
 
 extern unsigned char inizioCarica;
 extern unsigned char fineCarica;
+extern unsigned char fineCarica_prec;
 extern unsigned char flagBatteriaScarica;
+extern unsigned char flagBatteriaScarica_prec;
 extern unsigned char inizioCaricaSignalled;
 extern unsigned char fineCaricaSignalled;
 extern unsigned char batteriaScaricaSignalled;
@@ -169,7 +171,7 @@ void segnalazioneAccensione(void)
 }
 void segnalazioneInizioCarica(void)
 {
-	volatile int blink = 3;
+	volatile int blink = 4;
 	volatile int i = 0;
 	for(i=0;i<blink;i++)
 	{
@@ -189,15 +191,15 @@ void segnalazioneFineCarica(void)
 	for(i=0;i<blink;i++)
 	{
 		GPIOD->ODR |= BUZZER_ON;
-		aspetta(400);
+		aspetta(500);
 		GPIOD->ODR &= ~BUZZER_ON;
-		aspetta(400);
+		aspetta(500);
 	}
 	
 }
 void segnalazioneBatteriaScarica(void)
 {
-	volatile int blink = 3;
+	volatile int blink = 5;
 	volatile int i = 0;
 	for(i=0;i<blink;i++)
 	{
@@ -228,11 +230,12 @@ void debounceInizioCarica(void)
 }
 void debounceFineCarica(void)
 {
-	if((GPIOA->IDR >> 1) & 0x01) // fine carica
+	if(!((GPIOA->IDR >> 1) & 0x01)) // fine carica
 			{
 				if(countInputFC < 3)
 					countInputFC++;
 				else{
+					fineCarica_prec = fineCarica;
 					fineCarica = 1;
 
 				}
@@ -242,7 +245,10 @@ void debounceFineCarica(void)
 				if(countInputFC > 0)
 					countInputFC--;
 				else
+				{
+					fineCarica_prec = fineCarica;
 					fineCarica = 0;
+				}
 			}
 }
 void debounceBatteriaScarica(void)
@@ -252,6 +258,7 @@ void debounceBatteriaScarica(void)
 				if(countInputBS < 3)
 					countInputBS++;
 				else{
+					flagBatteriaScarica_prec = flagBatteriaScarica;
 					flagBatteriaScarica = 1;
 
 				}
@@ -261,7 +268,10 @@ void debounceBatteriaScarica(void)
 				if(countInputBS > 0)
 					countInputBS--;
 				else
+				{
+					flagBatteriaScarica_prec = flagBatteriaScarica;
 					flagBatteriaScarica = 0;
+				}
 			}
 }
 void debounceTasto(void)

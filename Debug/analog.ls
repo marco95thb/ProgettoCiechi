@@ -99,7 +99,7 @@
  252  0072 a30100        	cpw	x,#256
  253  0075 2404          	jruge	L56
  254                     ; 64 				return DISTANZA_4_0METRI;
- 256  0077 ae0033        	ldw	x,#51
+ 256  0077 ae0031        	ldw	x,#49
  259  007a 81            	ret
  260  007b               L56:
  261                     ; 66 			else if (adcValues.distanceSetPoint < SP_TH2_COUNT)

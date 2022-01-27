@@ -28,7 +28,7 @@
   78  001c 81            	ret
  110                     .const:	section	.text
  111  0000               L01:
- 112  0000 000000c8      	dc.l	200
+ 112  0000 00000096      	dc.l	150
  113                     ; 52 @far @interrupt void tim1Elapsed (void)
  113                     ; 53 {
  114                     	scross	on
@@ -48,7 +48,7 @@
  135  002f ae0000        	ldw	x,#_supportoDelayBloccante
  136  0032 a601          	ld	a,#1
  137  0034 cd0000        	call	c_lgadc
- 139                     ; 61 	if(totalTicks >= 200) // in teoria dovrebbero essere 100ms
+ 139                     ; 61 	if(totalTicks >= 150) // era 200. Proviamo a mettere 150
  141  0037 ae0000        	ldw	x,#_totalTicks
  142  003a cd0000        	call	c_ltor
  144  003d ae0000        	ldw	x,#L01

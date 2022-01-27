@@ -32,8 +32,10 @@ uint8_t statoPulsante_prec = 0;
 uint8_t oneShotDrive = 0;
 tFrequenza buzzer;
 unsigned char inizioCarica;
-unsigned char fineCarica;
-unsigned char flagBatteriaScarica = 0;
+unsigned char fineCarica_prec = 3;
+unsigned char fineCarica = 3;
+unsigned char flagBatteriaScarica = 3;
+unsigned char flagBatteriaScarica_prec = 3;
 unsigned char inizioCaricaSignalled;
 unsigned char fineCaricaSignalled;
 unsigned char batteriaScaricaSignalled = 0;
@@ -135,11 +137,25 @@ main()
 				if(stateMachineSensor == END_MEASURE_3SENSOR)
 				{
 					analogRead();
-					setPoint = checkSetPoint();
+					if(adcValues.distanceSetPoint < SP_TH1_COUNT)
+					{
+						setPoint =  DISTANZA_4_0METRI;
+					}
+					else if (adcValues.distanceSetPoint < SP_TH2_COUNT)
+					{
+						setPoint =  DISTANZA_3_0METRI;
+			
+					}
+					else// if (adcValues.distanceSetPoint < SP_TH3_COUNT)
+					{
+						setPoint =  DISTANZA_1_4_METRI;
+					}
+	
+					//setPoint = checkSetPoint();
 					stateMachineSensor = START_MEASURE_1SENSOR;
 					distanze.minima = 9999;
 					sensoreAttivo = 0;
-					if((distanze.d1 < setPoint) && (distanze.d1 >= MINIMA_DISTANZA_SENSORI	)) // legge solo se < 1.4m
+					if((distanze.d1 <= setPoint) && (distanze.d1 >= MINIMA_DISTANZA_SENSORI	)) // legge solo se < 1.4m
 					{
 						distanzeArray[0] = distanze.d1;
 					}
@@ -167,6 +183,7 @@ main()
 						{
 							distanze.minima = distanzeArray[i];
 							sensoreAttivo = i + 1;
+							break;
 						}
 							
 					}
@@ -204,8 +221,8 @@ main()
 						else if((distanze.minima < setPoint) &&
 						(distanze.minima >= SOGLIA_ALLARME_SENSORE_TH1))
 						{
-							segnalazioneOstacolo(100,1,7);
-							segnalazioneOstacolo(500,0,0);
+							segnalazioneOstacolo(200,1,3);
+							//segnalazioneOstacolo(500,0,0);
 						}
 						break;
 						default:
@@ -242,18 +259,18 @@ main()
 			if((inizioCarica) && (!inizioCaricaSignalled))
 			{
 				inizioCaricaSignalled = 0xFF;
-				//segnalazioneInizioCarica();
+				segnalazioneInizioCarica();
 			}
 			else if (inizioCarica == 0)
 			{
 				inizioCaricaSignalled = 0;
 			}
 		
-			if((fineCarica) && (!fineCaricaSignalled))
+			if((fineCarica == 1) && (fineCarica_prec == 0) && (!fineCaricaSignalled))
 			{
 			
 				fineCaricaSignalled = 0xFF;
-				//segnalazioneFineCarica();
+				segnalazioneFineCarica();
 			}
 			else if (fineCarica == 0)
 			{
@@ -261,10 +278,10 @@ main()
 			}
 		
 		
-			if((flagBatteriaScarica) && (!batteriaScaricaSignalled))
+			if((flagBatteriaScarica == 1) && (flagBatteriaScarica_prec == 0) && (!batteriaScaricaSignalled))
 			{
 				batteriaScaricaSignalled = 0xFF;
-				//segnalazioneBatteriaScarica();
+				segnalazioneBatteriaScarica();
 				
 				
 			}

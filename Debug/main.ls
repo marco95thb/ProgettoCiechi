@@ -331,12 +331,12 @@
  534  019c be14          	ldw	x,_sensoreAttivo
  535  019e a30003        	cpw	x,#3
  536  01a1 2612          	jrne	L551
- 537                     ; 198 									segnalazioneOstacolo(200,1,3);
- 539  01a3 ae0003        	ldw	x,#3
+ 537                     ; 198 									segnalazioneOstacolo(150,1,4);
+ 539  01a3 ae0004        	ldw	x,#4
  540  01a6 89            	pushw	x
  541  01a7 ae0001        	ldw	x,#1
  542  01aa 89            	pushw	x
- 543  01ab ae00c8        	ldw	x,#200
+ 543  01ab ae0096        	ldw	x,#150
  544  01ae cd0000        	call	_segnalazioneOstacolo
  546  01b1 5b04          	addw	sp,#4
  548  01b3 2076          	jra	L56
@@ -345,12 +345,12 @@
  552  01b5 be14          	ldw	x,_sensoreAttivo
  553  01b7 a30002        	cpw	x,#2
  554  01ba 266f          	jrne	L56
- 555                     ; 201 									segnalazioneOstacolo(200,1,5);
+ 555                     ; 201 									segnalazioneOstacolo(75,1,5);
  557  01bc ae0005        	ldw	x,#5
  558  01bf 89            	pushw	x
  559  01c0 ae0001        	ldw	x,#1
  560  01c3 89            	pushw	x
- 561  01c4 ae00c8        	ldw	x,#200
+ 561  01c4 ae004b        	ldw	x,#75
  562  01c7 cd0000        	call	_segnalazioneOstacolo
  564  01ca 5b04          	addw	sp,#4
  565  01cc 205d          	jra	L56

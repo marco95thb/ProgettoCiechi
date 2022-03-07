@@ -195,10 +195,10 @@ main()
 							&& (distanze.minima >= SOGLIA_ALLARME_SENSORE_TH1))
 							{
 								if(sensoreAttivo == 3) // è un esterno
-									segnalazioneOstacolo(200,1,3);
+									segnalazioneOstacolo(150,1,4);
 								else if(sensoreAttivo == 2) // è l'altro esterno
 								{
-									segnalazioneOstacolo(200,1,5);
+									segnalazioneOstacolo(75,1,5);
 								}
 							
 							}
